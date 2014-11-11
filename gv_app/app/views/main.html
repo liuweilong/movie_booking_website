@@ -1,3 +1,6 @@
-<div class="posters" ng-repeat="imgName in imgNames">
-  <img src="../rec/{{imgName}}" alt="{{imgName}}">
+<div class="poster" ng-repeat="imgName in imgNames">
+	<img ng-click="expander($index)" src="../rec/{{imgName}}" alt="{{imgName}}">
+	<div class="detail expand-{{expand[$index]}}">
+		<img src="../rec/{{imgName}}" alt="{{imgName}}">
+	</div>
 </div>
