@@ -7967,17 +7967,25 @@ button.close {
   border-style: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000311}}
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000312}}
+.clearfix:before,
 .clearfix:after {
   content: " ";
-  /* Older browser do not support empty content */
-  visibility: hidden;
-  display: block;
-  height: 0;
+  display: table;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000318}}
+.clearfix:after {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000319}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000322}}
+.clearfix {
+  *zoom: 1;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000326}}
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -7986,7 +7994,7 @@ button.close {
 }
 
 /* Custom page header */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000334}}
 .header {
   background-color: #FFF;
   width: 100%;
@@ -7997,7 +8005,7 @@ button.close {
   z-index: 999;
   /* Make the masthead heading the same height as the navigation */
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000345}}
 .header h3 {
   color: #8C081F;
   text-transform: uppercase;
@@ -8005,46 +8013,27 @@ button.close {
   margin: 0 0 0 5px;
   line-height: 40px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000353}}
 .header span {
   display: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000358}}
 .spacer {
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000356}}
-.poster img {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000362}}
+img {
   width: 20vw;
   height: 30vw;
-  border-style: none;
   margin: 0;
   padding: 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000367}}
-.poster .detail {
-  width: 100%;
-  background-color: #666;
-  overflow: hidden;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000372}}
-.poster .detail img {
-  margin: 20px 20px 20px 20px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000377}}
-.poster .expand-true {
-  height: auto;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000381}}
-.poster .expand-false {
-  height: 0;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000388}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/liuweilong\/Developer\/movie_booking_website\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000371}}
   .container {
     max-width: 730px;
   }
