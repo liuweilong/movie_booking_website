@@ -1,3 +1,7 @@
-<div class="posters" ng-repeat="imgName in imgNames">
-  <img src="../rec/{{imgName}}" alt="{{imgName}}">
-</div>
+<ul id="og-grid" class="og-grid">
+	<li ng-repeat="imgName in imgNames">
+		<a href="" data-largesrc="images/2.jpg" data-largesrc="../rec/{{imgName}}" data-title="{{imgName}}" data-description="{{imgName}}">
+			<img src="../rec/{{imgName}}" alt="{{imgName}}">
+		</a>
+	</li>
+</ul>

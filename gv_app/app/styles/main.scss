@@ -5,82 +5,70 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 // Global settings
 * {
-  border-style: none;  
+	border-style: none;  
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
 }
 
 .clearfix:after {
-   content: " "; /* Older browser do not support empty content */
-   visibility: hidden;
-   display: block;
-   height: 0;
-   clear: both;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
 }
 
 .browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
 }
 
 /* Custom page header */
 .header {
-  background-color: #FFF;
-  width: 100%; 
-  position: fixed;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 50);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 50);
-  padding: 5px 0 5px 0;
-  margin: 0; 
-  z-index: 999; 
+	background-color: #FFF;
+	width: 100%; 
+	position: fixed;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 50);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 50);
+	padding: 5px 0 5px 0;
+	margin: 0; 
+	z-index: 999;
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    color: #8C081F;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0 0 0 5px;
-    line-height: 40px;
-  }
+	/* Make the masthead heading the same height as the navigation */
+	h3 {
+		color: #8C081F;
+		text-transform: uppercase;
+		font-weight: 700;
+		margin: 0 0 0 5px;
+		line-height: 40px;
+	}
 
-  span {
-    display: none; 
-  }
+	span {
+		display: none; 
+	}
 }
 
 .spacer {
-  width: 100%; 
+	width: 100%; 
 }
 
-.posters { 
-  img {
-    display: inline-block;
-    float: left;
+img {
     width: 20vw;
     height: 30vw; 
-    border-style: none;
     margin: 0;
-    padding: 0;    
-  }
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+    padding: 0;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+	.container {
+		max-width: 730px;
+	}
 }
