@@ -197,9 +197,6 @@ var Grid = (function() {
 		};
 
 	function init( config ) {
-		console.log($grid);
-		console.log($items);
-		
 		// the settings..
 		settings = $.extend( true, {}, settings, config );
 
@@ -214,7 +211,6 @@ var Grid = (function() {
 			initEvents();
 
 		} );
-
 	}
 
 	// add more items to the grid.
