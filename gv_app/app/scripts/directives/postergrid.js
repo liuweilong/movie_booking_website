@@ -48,19 +48,6 @@ angular.module('gvApp')
 			};
 
 			posterGridService.current = this.$item.index();
-
-			//Choose another way to load info
-			// var $itemEl = this.$item.children( 'a' ),
-		 //        eldata = {
-		 //            href : $itemEl.attr( 'href' ),
-		 //            largesrc : $itemEl.data( 'largesrc' ),
-		 //            title : $itemEl.data( 'title' ),
-		 //            description : $itemEl.data( 'description' )
-		 //        };
-		 
-		 //    this.$title.html( eldata.title );
-		 //    this.$description.html( eldata.description );
-		 //    this.$href.attr( 'href', eldata.href );
 		 
 		    var self = this;
 		     
@@ -78,7 +65,7 @@ angular.module('gvApp')
 		            self.$largeImg = $( this ).fadeIn( 350 );
 		            self.$fullimage.append( self.$largeImg );
 		        } ).attr( 'src', '../rec/1.jpg' ); 
-		    } 
+		    }
 		},
 
 		open: function() {
@@ -96,6 +83,8 @@ angular.module('gvApp')
 			if (!posterGridService.support) {
 				onEndFn.call();
 			};
+
+			this.positionPreview();
 		},
 
 		calcHeight : function() {
