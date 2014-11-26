@@ -64,7 +64,7 @@ angular.module('gvApp')
 		            self.$loading.hide();
 		            self.$largeImg = $( this ).fadeIn( 350 );
 		            self.$fullimage.append( self.$largeImg );
-		        } ).attr( 'src', '../rec/1.jpg' ); 
+		        } ).attr( 'src', posterGridService.path ); 
 		    }
 		},
 
@@ -257,6 +257,8 @@ angular.module('gvApp')
 			var preview = $.data( this, 'preview' ),
 				position = item.data('offsetTop');
 
+			console.log($scope.imgNames[index]);
+			posterGridService.path = '../rec/' + $scope.imgNames[index];
 			posterGridService.scrollExtra = 0;
 
 			if (typeof preview != 'undefined') {
