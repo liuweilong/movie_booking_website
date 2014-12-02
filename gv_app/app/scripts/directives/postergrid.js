@@ -7,8 +7,9 @@
  * # posterGrid
  */
 angular.module('gvApp')
-.factory('previewFactory', ['posterGridService', function(posterGridService){
-	var preview = function(item, index) {
+.factory('previewFactory', ['posterGridService', '$compile', function(posterGridService, $compile){
+	var preview = function(item, index, scope) {
+		this.scope = scope;
 		this.$item = item;
 		this.expandedIdx = index;
 		this.create();
@@ -17,15 +18,7 @@ angular.module('gvApp')
 
 	preview.prototype = {
 		create : function() {
-		    // create Preview structure:
-		    this.$title = $( '<h3>Title</h3>' );
-		    this.$description = $( '<p>Nothing in here</p>' );
-		    this.$href = $( '<a href="#">Visit website</a>' );
-		    this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
-		    this.$loading = $( '<div class="og-loading"></div>' );
-		    this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
-		    this.$closePreview = $( '<span class="og-close"></span>' );
-		    this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
+		    this.$previewInner = $compile('<poster-detail index='+ this.expandedIdx +'></poster-detail>')(this.scope);
 		    this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner );
 		    // append preview element to the item
 		    this.$item.append( this.getEl() );
@@ -35,9 +28,10 @@ angular.module('gvApp')
 		    }
 		},
 
-		update: function($item) {
+		update: function($item, index, $scope) {
 			if ($item) {
 				this.$item = $item;
+				this.$previewInner = $compile('<poster-detail index='+ index +'></poster-detail>')(this.scope);
 			};
 
 			if (posterGridService.current !== -1) {
@@ -48,24 +42,6 @@ angular.module('gvApp')
 			};
 
 			posterGridService.current = this.$item.index();
-		 
-		    var self = this;
-		     
-		    // remove the current image in the preview
-		    if( typeof self.$largeImg != 'undefined' ) {
-		        self.$largeImg.remove();
-		    }
-		 
-		    // preload large image and add it to the preview
-		    // for smaller screens we don´t display the large image (the last media query will hide the wrapper of the image)
-		    if( self.$fullimage.is( ':visible' ) ) {
-		        this.$loading.show();
-		        $( '<img/>' ).load( function() {
-		            self.$loading.hide();
-		            self.$largeImg = $( this ).fadeIn( 350 );
-		            self.$fullimage.append( self.$largeImg );
-		        } ).attr( 'src', posterGridService.path ); 
-		    }
 		},
 
 		open: function() {
@@ -102,25 +78,6 @@ angular.module('gvApp')
 		 
 		},
 
-		setHeights : function() {
-
-			var self = this,
-				onEndFn = function() {
-					if( posterGridService.support ) {
-						self.$item.off( posterGridService.transEndEventName );
-					}
-					self.$item.addClass( 'og-expanded' );
-				};
-
-			this.calcHeight();
-			this.$previewEl.css( 'height', this.height );
-			this.$item.css( 'height', this.itemHeight ).on( posterGridService.transEndEventName, onEndFn );
-
-			if( !posterGridService.support ) {
-				onEndFn.call();
-			}
-
-		},
 		positionPreview : function() {
 
 			// scroll page
@@ -129,7 +86,7 @@ angular.module('gvApp')
 			// case 3 : preview height + item height does not fit in window´s height and preview height is bigger than window´s height
 			var position = this.$item.data( 'offsetTop' ),
 				previewOffsetT = this.$previewEl.offset().top - posterGridService.scrollExtra,
-				scrollVal = this.height + this.$item.data( 'height' ) + posterGridService.marginExpanded <= posterGridService.winsize.height ? position : this.height < posterGridService.winsize.height ? previewOffsetT - ( posterGridService.winsize.height - this.height ) : previewOffsetT;
+				scrollVal = this.itemHeight <= posterGridService.winsize.height ? position : this.height < posterGridService.winsize.height ? previewOffsetT - ( posterGridService.winsize.height - this.height ) : previewOffsetT;
 			
 			posterGridService.$body.animate( { scrollTop : scrollVal }, posterGridService.settings.speed );
 
@@ -160,7 +117,6 @@ angular.module('gvApp')
 		        this.$previewEl.css( 'height', 0 );
 		        // the current expanded item (might be different from this.$item)
 		        var $expandedItem = posterGridService.$items.eq( this.expandedIdx );
-		        console.log($expandedItem);
 				$expandedItem.css( 'height', posterGridService.itemHeight[this.expandedIdx] ).on( posterGridService.transEndEventName, onEndFn );
 		 
 		        if( !posterGridService.support ) {
@@ -178,9 +134,6 @@ angular.module('gvApp')
 }])
 .service('posterGridService', 
 	['$document', '$window', function($document, $window){
-		this.posterList = [
-			'1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'
-		];
 		this.itemHeight = [],
 		this.itemOffsetTop = [],
 		this.support = Modernizr.csstransitions;
@@ -189,6 +142,7 @@ angular.module('gvApp')
 		this.scrollExtra = 0;
 		this.marginExpanded = 10;
 		this.$window = $window;
+		this.winsize =  {width: $window.innerWidth, height: $window.innerHeight};
 		this.$body = angular.element($document[0].body);
 		var transEndEventNames = {
 		        'WebkitTransition' : 'webkitTransitionEnd',
@@ -207,14 +161,14 @@ angular.module('gvApp')
 			easing : 'ease'
 		};
 		this.getWinSize = function() {
-			console.log("getting");
+			// console.log("getting");
 			this.winsize = {width: $window.innerWidth, height: $window.innerHeight};
 		};
 
 		this.setItems = function(items) {
 			if (typeof this.$items === 'undefined') {
 				this.$items = items;
-				console.log(items);
+				// console.log(items);
 				this.saveItemInfo(true);
 			};
 		}
@@ -226,7 +180,7 @@ angular.module('gvApp')
 				$item.data('offsetTop', $item.offset(). top);
 				self.itemOffsetTop.push($item.offset().top);
 				if (saveheight) {
-					console.log($item.height());
+					// console.log($item.height());
 					self.itemHeight.push($item.height());
 					$item.data('height', $item.height());
 				};
@@ -235,13 +189,13 @@ angular.module('gvApp')
 }])
 
 .controller('posterGridCtrl', 
-	['$scope', '$attrs', 'posterGridService', 'previewFactory', function($scope, $attrs, posterGridService, previewFactory){
+	['$scope', '$attrs', 'posterGridService', 'previewFactory', 'movieData', function($scope, $attrs, posterGridService, previewFactory, movieData){
 		var self = this;
 
 		this.init = function(element) {
 			this.$element = element;
 			posterGridService.getWinSize();
-			console.log(posterGridService.winsize);
+			// console.log(posterGridService.winsize);
 		};
 
 		$scope.hidePreview = function() {
@@ -252,16 +206,13 @@ angular.module('gvApp')
 		};
 
 		$scope.showPreview = function(item, index) {
-			console.log("showPreview");
-			console.log(item);
 			var preview = $.data( this, 'preview' ),
 				position = item.data('offsetTop');
 
-			console.log($scope.imgNames[index]);
 			posterGridService.path = '../rec/' + $scope.imgNames[index];
 			posterGridService.scrollExtra = 0;
 
-			if (typeof preview != 'undefined') {
+			if (posterGridService.current != -1) {
 				if (posterGridService.previewPos != position) {
 					if (position > posterGridService.previewPos) {
 						posterGridService.scrollExtra = preview.height;
@@ -270,24 +221,27 @@ angular.module('gvApp')
 				}
 
 				else {
-					preview.update(item);
+					// console.log('updating');
+					preview.update(item, index, $scope);
 					return false;
 				}
 			}
 
 			posterGridService.previewPos = position;
-			preview = $.data(this, 'preview', new previewFactory(item, index));
+			preview = $.data(this, 'preview', new previewFactory(item, index, $scope));
 			preview.open();
 		};
 
 		$scope.togglePreview = function($event, index) {
+			this.index = index;
+
 			var item = angular.element($event.target).parent().parent();
 			var items = angular.element($event.target).parent().parent().parent().children();
 			posterGridService.setItems(items);
 			posterGridService.current === index ? $scope.hidePreview() : $scope.showPreview(item, index);
 		};
 
-		$scope.imgNames = posterGridService.posterList;
+		$scope.imgNames = movieData.posters;
 }])
 
 .directive('posterGrid', function () {

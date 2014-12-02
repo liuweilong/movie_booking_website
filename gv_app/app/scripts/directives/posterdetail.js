@@ -12,6 +12,11 @@ angular.module('gvApp')
 		templateUrl: '../views/posterdetail.html',
 		restrict: 'AE',
 		link: function postLink(scope, element, attrs) {
+
+			attrs.$observe('index', function() {
+				console.log("detected change");
+				scope.imgName = scope.imgNames[attrs.index];
+			});
 		}
 	};
 });

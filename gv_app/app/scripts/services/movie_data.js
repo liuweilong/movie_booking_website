@@ -8,6 +8,9 @@
  * Service in the gvApp.
  */
 angular.module('gvApp')
-  .service('movieData', function () {
-    // AngularJS will instantiate a singleton by calling "new" on this function
-  });
+.service('movieData', 
+	function () {
+		this.posters = [
+			'1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg'
+		];
+});
