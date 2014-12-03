@@ -13,7 +13,8 @@ angular.module('gvApp')
 		restrict: 'AE',
 		link: function postLink(scope, element, attrs) {
 			attrs.$observe('index', function() {
-				scope.imgName = scope.imgNames[attrs.index];
+				scope.movie = scope.movies[attrs.index];
+				// scope.movie = attrs.o;
 			});
 		}
 	};

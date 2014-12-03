@@ -9,16 +9,15 @@
 angular.module('gvApp')
 .factory('previewFactory', ['posterGridService', '$compile', function(posterGridService, $compile){
 	var preview = function(item, index, scope) {
-		this.scope = scope;
 		this.$item = item;
 		this.expandedIdx = index;
-		this.create();
-		this.update();
+		this.create(index, scope);
+		this.update(this.$item, index, scope);
 	};
 
 	preview.prototype = {
-		create : function() {
-		    this.$previewInner = $compile('<poster-detail index='+ this.expandedIdx +'></poster-detail>')(this.scope);
+		create : function(index, scope) {
+		    this.$previewInner = $compile('<poster-detail index='+ index +'></poster-detail>')(scope);
 		    this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner );
 		    // append preview element to the item
 		    this.$item.append( this.getEl() );
@@ -28,10 +27,10 @@ angular.module('gvApp')
 		    }
 		},
 
-		update: function($item, index, $scope) {
+		update: function($item, index, scope) {
 			if ($item) {
 				this.$item = $item;
-				this.$previewInner = $compile('<poster-detail index='+ index +'></poster-detail>')(this.scope);
+				this.$previewInner = $compile('<poster-detail index='+ index +'></poster-detail>')(scope);
 			};
 
 			if (posterGridService.current !== -1) {
@@ -209,7 +208,7 @@ angular.module('gvApp')
 			var preview = $.data( this, 'preview' ),
 				position = item.data('offsetTop');
 
-			posterGridService.path = '../rec/' + $scope.imgNames[index];
+			// posterGridService.path = '../rec/' + $scope.imgNames[index];
 			posterGridService.scrollExtra = 0;
 
 			if (posterGridService.current != -1) {
@@ -232,7 +231,7 @@ angular.module('gvApp')
 			preview.open();
 		};
 
-		$scope.togglePreview = function($event, index) {
+		$scope.togglePreview = function($event, index, movie) {
 			this.index = index;
 
 			var item = angular.element($event.target).parent().parent();
@@ -241,12 +240,15 @@ angular.module('gvApp')
 			posterGridService.current === index ? $scope.hidePreview() : $scope.showPreview(item, index);
 		};
 
-		$scope.imgNames = movieData.posters;
+		movieData.queryData().success(function(responce) {
+			$scope.movies = responce;
+		})
 }])
 
 .directive('posterGrid', function () {
 	var link = function(scope, element, attrs, posterGridCtrl) {
 		posterGridCtrl.init(element);
+		// console.log(scope.movies);
 	};
 
 	return {
