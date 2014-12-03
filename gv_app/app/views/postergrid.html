@@ -1,5 +1,5 @@
 <ul id="og-grid" class="og-grid">
-	<li ng-repeat="movie in movies" ng-click="togglePreview($event, $index, movie)">
+	<li ng-repeat="movie in movies" ng-click="togglePreview($event, $index, movie)" ng-show="show(movie)">
 		<a href="">
 			<img ng-src={{movie.imageLink}} alt="{{movie.movieName}}">
 		</a>

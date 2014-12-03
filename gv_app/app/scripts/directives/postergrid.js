@@ -38,6 +38,8 @@ angular.module('gvApp')
 				$currentItem.removeClass('og-expanded');
 				this.$item.addClass('og-expanded');
 				this.positionPreview();
+			} else {
+				this.$item.addClass('og-expanded');
 			};
 
 			posterGridService.current = index;
@@ -191,11 +193,62 @@ angular.module('gvApp')
 	['$scope', '$attrs', 'posterGridService', 'previewFactory', 'movieData', function($scope, $attrs, posterGridService, previewFactory, movieData){
 		var self = this;
 
+		/*
+		This is a listener for select events from selector, will be called when a cinema is selected
+		 */
+		// this.select = function(selectedTheaters) {
+		// 	$scope.selectedTheaters = selectedTheaters;
+		// 	console.log($scope.selectedTheaters);
+		// };
+		this.select = function(selectedTheater) {
+			$scope.selectedTheater = selectedTheater;
+		}
+
 		this.init = function(element) {
 			this.$element = element;
 			posterGridService.getWinSize();
 			// console.log(posterGridService.winsize);
 		};
+
+		/*
+		Determine whether a poster show shold or not. For the function of location filter
+		 */
+		$scope.show = function(movie) {
+			if ($scope.selectedTheater === 'all' | typeof $scope.selectedTheater === 'undefined') {
+				return true;
+			};
+
+			for (var theater in movie.cinema) {
+				if ($scope.selectedTheater === movie.cinema[theater]) {
+					return true;
+				};
+			}
+
+			return false;
+		}
+
+		// $scope.show = function(movie) {
+
+		// 	if (typeof $scope.selectedTheaters === 'undefined') {
+		// 		return true;
+		// 	}
+
+
+		// 	for (var theater in $scope.selectedTheaters) {
+		// 		if ($scope.selectedTheaters[theater]) {
+		// 			for (var theater in movie.cinema) {
+		// 				if ($scope.selectedTheaters[movie.cinema[theater]]) {
+		// 					return true;
+		// 				}
+		// 			}
+
+		// 			return false;
+		// 		};
+		// 	}
+			
+
+		// 	return true;
+		// };
 
 		$scope.hidePreview = function() {
 			posterGridService.current = -1;
@@ -246,9 +299,21 @@ angular.module('gvApp')
 }])
 
 .directive('posterGrid', function () {
-	var link = function(scope, element, attrs, posterGridCtrl) {
-		posterGridCtrl[0].init(element);
-		// console.log(scope.movies);
+	var fixPosition = function() {
+		angular.element("#spacer-header").css('height', angular.element('#header').outerHeight() + 'px');
+		angular.element("#spacer-selector").css('height', angular.element('.selector').outerHeight() + 'px');
+	};
+
+	var link = function(scope, element, attrs, ctrl) {
+		fixPosition();
+
+		/*
+		Register poster grid controller to selector controller
+		 */
+		var posterGridCtrl = ctrl[0],
+			selectorCtrl = ctrl[1];
+		posterGridCtrl.init(element);
+		selectorCtrl.registerGrid(posterGridCtrl);
 	};
 
 	return {

@@ -82,7 +82,7 @@ angular.module('gvApp')
 			global.$body.animate( { scrollTop : scrollVal }, global.settings.speed );
 		};
 }])
-.directive('poster',['global', function (global) {
+.directive('poster', ['global', function (global) {
 	var setTransition = function (element) {
 		if (global.support) {
 			element.css( 'transition', 'height ' + global.settings.speed + 'ms ' + global.settings.easing );

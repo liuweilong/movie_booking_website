@@ -1,4 +1,7 @@
-<div class="selector">
-	<button ng-repeat="theater in theaters" ng-click='selectTheater(theater)'>{{theater}}</button>
+<div class="selector" >
+	<button ng-repeat="theater in theaters" ng-class="{selected: theater === selectedTheater}" ng-click='selectTheater(theater)'>{{theater}}</button>
+</div>
+<div id="spacer-selector">
+	&nbsp;
 </div>
 <poster-grid class="poster-grid"></poster-grid>

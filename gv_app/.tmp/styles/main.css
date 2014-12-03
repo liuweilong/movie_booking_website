@@ -7995,7 +7995,7 @@ button.close {
 
 /* Custom page header */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000334}}
-.header {
+#header {
   background-color: #FFF;
   width: 100%;
   position: fixed;
@@ -8006,24 +8006,49 @@ button.close {
   /* Make the masthead heading the same height as the navigation */
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000345}}
-.header h3 {
-  color: #8C081F;
+#header h3 {
+  color: #4E7499;
   text-transform: uppercase;
   font-weight: 700;
   margin: 0 0 0 5px;
   line-height: 40px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000353}}
-.header span {
-  display: none;
-}
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000354}}
 .spacer {
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000362}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000358}}
+.selector {
+  width: 100%;
+  padding: 10px 0 10px 0;
+  position: fixed;
+  z-index: 999;
+  background-color: #5B5E6F;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000365}}
+.selector button {
+  width: 120px;
+  background-color: #F4F4F4;
+  margin: 5px 0 5px 10px;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4A4A4A;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000375}}
+.selector button:focus {
+  outline: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000380}}
+.selector .selected {
+  background-color: #8C081F;
+  color: #FFFCFC;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000386}}
 img {
   width: 20vw;
   height: 30vw;
@@ -8032,9 +8057,31 @@ img {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000371}}
+@media screen and (max-width: 1050px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000395}}
   .container {
     max-width: 730px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000399}}
+  img {
+    width: 25vw;
+    height: 37vw;
+    margin: 0;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 900px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003108}}
+  .container {
+    max-width: 730px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003112}}
+  img {
+    width: 33.3vw;
+    height: 51vw;
+    margin: 0;
+    padding: 0;
   }
 }

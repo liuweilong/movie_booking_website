@@ -43,7 +43,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 	/* Make the masthead heading the same height as the navigation */
 	h3 {
-		color: #8C081F;
+		color: #4E7499;
 		text-transform: uppercase;
 		font-weight: 700;
 		margin: 0 0 0 5px;
@@ -55,6 +55,34 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 	width: 100%; 
 }
 
+.selector {
+	width: 100%; 
+	padding: 10px 0 10px 0;
+	position: fixed;
+	z-index: 999; 
+	background-color: #5B5E6F;
+	
+	button {
+		width: 120px;
+		background-color: #F4F4F4;
+		margin: 5px 0 5px 10px;
+		padding: 5px;
+		border-radius: 3px;
+		font-size: 14px;
+		font-weight: 600;
+		color: #4A4A4A;
+		
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.selected {
+		background-color: #8C081F;
+		color: #FFFCFC;
+	}
+}
+
 img {
     width: 20vw;
     height: 30vw; 
@@ -63,8 +91,28 @@ img {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1050px) {
 	.container {
 		max-width: 730px;
+	}
+
+	img {
+	    width: 25vw;
+	    height: 37vw; 
+	    margin: 0;
+	    padding: 0;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.container {
+		max-width: 730px;
+	}
+
+	img {
+	    width: 33.3vw;
+	    height: 51vw; 
+	    margin: 0;
+	    padding: 0;
 	}
 }
