@@ -10,7 +10,7 @@
     	"language" : "English(Sub: Chinese)",
     	"synopsis" : "Discover the secrets of the most entertaining and mysterious birds in the global espionage game: Skipper, Kowalski, Rico and Private now must join forces with the chic spy organization, the North Wind, led by Agent Classified (we could tell you his name, but then... you know), voiced by Benedict Cumberbatch, to stop the villainous Dr. Octavius Brine, voiced by John Malkovich, from taking over the world.",
     	"cinema" : ["The Cathay", "West Mall", "Cineleisure", "JEM", "Causeway Point", "AMK HUB", "Downtown East"],
-    	"imageLink" : "http://www.impawards.com/2014/posters/penguins_of_madagascar_xlg.jpg",
+    	"imageLink" : "images/penguins_of_madagascar_xlg.jpg",
     	"trailerLink" : "http://youtu.be/retX8Wj7JdM" } , 
 
     {	"movieName":"Rise Of The Legend", 
@@ -36,7 +36,7 @@
     	"language" : "English(Sub: Chinese)",
     	"synopsis" : "Fed up with answering to higher-ups, Nick (Bateman), Dale (Day) and Kurt (Sudeikis) decide to become their own bosses by launching their own business in Horrible Bosses 2. But a slick investor soon pulls the rug out from under them. Outplayed and desperate, and with no legal recourse, the three would-be entrepreneurs hatch a misguided plan to kidnap the investors adult son and ransom him to regain control of their company.",
     	"cinema" : [ "The Cathay", "West Mall", "Cineleisure", "JEM", "Causeway Point", "AMK HUB", "Downtown East"],
-    	"imageLink" : "http://collider.com/wp-content/uploads/horrible-bosses-2-poster-1.jpg",
+    	"imageLink" : "images/horrible-bosses-2-poster-1.jpg",
     	"trailerLink" : "http://youtu.be/D_PQhGHnU8Q" } , 
 
     {	"movieName":"The Hunger Games: Mockingjay Part 1", 
@@ -49,7 +49,7 @@
     	"language" : "English(Sub: Chinese)",
     	"synopsis" : "The worldwide phenomenon of The Hunger Games continues to set the world on fire with The Hunger Games: Mockingjay - Part 1, which finds Katniss Everdeen (Jennifer Lawrence) in District 13 after she literally shatters the games forever. Under the leadership of President Coin (Julianne Moore) and the advice of her trusted friends, Katniss spreads her wings as she fights to save Peeta (Josh Hutcherson) and a nation moved by her courage. The Hunger Games: Mockingjay - Part 1 is directed by Francis Lawrence from a screenplay by Danny Strong and Peter Craig and produced by Nina Jacobson's Color Force in tandem with producer Jon Kilik. The novel on which the film is based is the third in a trilogy written by Suzanne Collins that has over 65 million copies in print in the U.S. alone.",
     	"cinema" : ["The Cathay", "West Mall", "Cineleisure", "JEM", "Causeway Point", "AMK HUB", "Downtown East"],
-    	"imageLink" : "http://collider.com/wp-content/uploads/the-hunger-games-mockingjay-part-1-final-poster.jpg",
+    	"imageLink" : "images/the-hunger-games-mockingjay-part-1-final-poster.jpg",
     	"trailerLink" : "http://youtu.be/3PkkHsuMrho" } , 
 
     {	"movieName":"Disney's Big Hero 6", 
@@ -88,7 +88,7 @@
     	"language" : "English(Sub: Chinese)",
     	"synopsis" : "With our time on Earth coming to an end, a team of explorers undertakes the most important mission in human history: traveling beyond this galaxy to discover whether mankind has a future among the stars.",
     	"cinema" : ["The Cathay", "West Mall", "Cineleisure", "JEM", "Causeway Point", "AMK HUB", "Downtown East"],
-    	"imageLink" : "http://collider.com/wp-content/uploads/interstellar-poster1.jpg",
+    	"imageLink" : "images/interstellar-poster1.jpg",
     	"trailerLink" : "http://youtu.be/zSWdZVtXT7E" } , 
 
     {	"movieName":"Dearest", 
@@ -127,7 +127,7 @@
     	"language" : "English(Sub: Chinese)",
     	"synopsis" : "Jim Carrey and Jeff Daniels reprise their signature roles as Lloyd and Harry in the sequel to the smash hit that took the physical comedy and kicked it in the nuts: Dumb and Dumber To. The original films directors, Peter and Bobby Farrelly, take Lloyd and Harry on a road trip to find a child Harry never knew he had and the responsibility neither should ever, ever be given. ",
     	"cinema" : ["The Cathay", "West Mall", "Cineleisure", "JEM", "Causeway Point", "AMK HUB", "Downtown East"],
-    	"imageLink" : "http://www.impawards.com/2014/posters/dumb_and_dumber_to_ver8_xlg.jpg",
+    	"imageLink" : "images/dumb_and_dumber_to_ver8_xlg.jpg",
     	"trailerLink" : "http://youtu.be/bQ4mbHt41mg?list=UUXzTlfmCw4aPk3l_HQQPqhA" } ,
 
     {	"movieName":"Happy Ending", 

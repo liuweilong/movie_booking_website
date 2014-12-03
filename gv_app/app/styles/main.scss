@@ -31,7 +31,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 }
 
 /* Custom page header */
-.header {
+#header {
 	background-color: #FFF;
 	width: 100%; 
 	position: fixed;
@@ -48,10 +48,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 		font-weight: 700;
 		margin: 0 0 0 5px;
 		line-height: 40px;
-	}
-
-	span {
-		display: none; 
 	}
 }
 

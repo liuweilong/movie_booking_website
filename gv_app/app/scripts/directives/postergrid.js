@@ -12,7 +12,7 @@ angular.module('gvApp')
 		this.$item = item;
 		this.expandedIdx = index;
 		this.create(index, scope);
-		this.update(this.$item, index, scope);
+		this.update(index, scope);
 	};
 
 	preview.prototype = {
@@ -27,7 +27,7 @@ angular.module('gvApp')
 		    }
 		},
 
-		update: function($item, index, scope) {
+		update: function(index, scope, $item) {
 			if ($item) {
 				this.$item = $item;
 				this.$previewInner = $compile('<poster-detail index='+ index +'></poster-detail>')(scope);
@@ -40,7 +40,7 @@ angular.module('gvApp')
 				this.positionPreview();
 			};
 
-			posterGridService.current = this.$item.index();
+			posterGridService.current = index;
 		},
 
 		open: function() {
@@ -221,7 +221,7 @@ angular.module('gvApp')
 
 				else {
 					// console.log('updating');
-					preview.update(item, index, $scope);
+					preview.update(index, $scope, item);
 					return false;
 				}
 			}
@@ -247,12 +247,13 @@ angular.module('gvApp')
 
 .directive('posterGrid', function () {
 	var link = function(scope, element, attrs, posterGridCtrl) {
-		posterGridCtrl.init(element);
+		posterGridCtrl[0].init(element);
 		// console.log(scope.movies);
 	};
 
 	return {
 		templateUrl: '../views/postergrid.html',
+		require: ['posterGrid', '^selector'],
 		restrict: 'E',
 		controller: 'posterGridCtrl',
 		link: link

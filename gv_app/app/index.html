@@ -21,14 +21,14 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->  
-    <div id="header" class="header">
+    <div id="header">
     	<h3>Cathay</h3>
     </div>
 
     <div class="spacer">
     	&nbsp;
     </div>
-    <poster-grid class="poster-grid"></poster-grid>
+    <div selector></div>
     <!-- <div poster-detail></div> -->
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -74,15 +74,14 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <script src="scripts/extra/modernizr.custom.js"></script>
+
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/directives/postergrid.js"></script>
     <script src="scripts/directives/posterdetail.js"></script>
     <script src="scripts/services/movie_data.js"></script>
+    <script src="scripts/directives/selector.js"></script>
     <!-- endbuild -->
-    <script>
-    $(".spacer").css('height', $(".header").outerHeight() + 'px');
-    </script>
-    <script src="scripts/extra/modernizr.custom.js"></script>
 </body>
 </html>
