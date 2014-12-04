@@ -83,11 +83,39 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 	}
 }
 
-img {
-    width: 20vw;
-    height: 30vw; 
-    margin: 0;
-    padding: 0;
+.og-grid {
+	// .overlay {
+	// 	position: relative;
+		
+	// 	.overlay-inner {
+	// 		z-index: 998; 
+	// 		position: absolute; 
+	// 		float: left;
+	// 		// top: 40%; 
+	// 		// left: 0; 
+	// 		width: 100%;
+			
+	// 		span {
+	// 			color: white; 
+	// 			font: bold 24px/45px Helvetica, Sans-Serif; 
+	// 			letter-spacing: -1px;  
+	// 			background: rgb(0, 0, 0); /* fallback color */
+	// 			background: rgba(0, 0, 0, 0.7);
+	// 			padding: 10px;
+	// 		}
+
+	// 		.sub-title {
+	// 			font: 16px Helvetica, Sans-Serif; 
+	// 		}
+	// 	}
+	// }
+
+	img {
+	    width: 20vw;
+	    height: 30vw; 
+	    margin: 0;
+	    padding: 0;
+	}
 }
 
 /* Responsive: Portrait tablets and up */

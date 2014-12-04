@@ -1,11 +1,24 @@
-<div class="og-expander-inner">
+<div class="og-expander-inner container">
     <span class="og-close"></span>
     <!-- <div class="og-fullimg">
         <img src="../rec/{{imgName}}">
     </div> -->
-    <div class="og-details">
-        <h3>{{movie.movieName}}</h3>
-        <p>{{movie.movieName}}</p>
-        <a href="{{movie.movieName}}">Visit website</a>
+    <div class="row">
+    	<div class="col-md-5">
+    	    <h3>{{movie.movieName}}</h3>
+    	    <p>
+    	    	<span>Cast: {{movie.cast}}</span><br>
+    	    	<span>Director: {{movie.director}}</span><br>
+    	    	<span>Genre: {{movie.genre}}</span><br>
+    	    	<span>Release: {{movie.release}}</span><br>
+    	    	<span>language: {{movie.language}}</span>
+    	    </p>
+    	    <p>{{movie.synopsis}}</p>
+    	</div>
+    		
+		<div class="col-md-4 col-md-offset-1">
+			<img src="{{movie.imageLink}}" alt="">
+		</div>
     </div>
+
 </div>

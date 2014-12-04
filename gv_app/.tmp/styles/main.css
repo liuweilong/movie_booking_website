@@ -8048,8 +8048,8 @@ button.close {
   color: #FFFCFC;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000386}}
-img {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003113}}
+.og-grid img {
   width: 20vw;
   height: 30vw;
   margin: 0;
@@ -8058,12 +8058,12 @@ img {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (max-width: 1050px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000395}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003123}}
   .container {
     max-width: 730px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003127}}
   img {
     width: 25vw;
     height: 37vw;
@@ -8072,12 +8072,12 @@ img {
   }
 }
 @media screen and (max-width: 900px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003108}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003136}}
   .container {
     max-width: 730px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003112}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003140}}
   img {
     width: 33.3vw;
     height: 51vw;

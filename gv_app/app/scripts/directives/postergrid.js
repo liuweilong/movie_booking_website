@@ -158,7 +158,7 @@ angular.module('gvApp')
 		// default settings
 		this.settings = {
 			minHeight : 500,
-			speed : 350,
+			speed : 100,
 			easing : 'ease'
 		};
 		this.getWinSize = function() {
@@ -193,22 +193,54 @@ angular.module('gvApp')
 	['$scope', '$attrs', 'posterGridService', 'previewFactory', 'movieData', function($scope, $attrs, posterGridService, previewFactory, movieData){
 		var self = this;
 
+		this.hovering = false;
+
+		/*
+		Initialization 
+		 */
+		this.init = function(element) {
+			this.$element = element;
+			posterGridService.getWinSize();
+		};
+
 		/*
 		This is a listener for select events from selector, will be called when a cinema is selected
 		 */
-		// this.select = function(selectedTheaters) {
-		// 	$scope.selectedTheaters = selectedTheaters;
-		// 	console.log($scope.selectedTheaters);
-		// };
 		this.select = function(selectedTheater) {
 			$scope.selectedTheater = selectedTheater;
 		}
 
-		this.init = function(element) {
-			this.$element = element;
-			posterGridService.getWinSize();
-			// console.log(posterGridService.winsize);
-		};
+		/*
+		Whether a overlay should be added
+		 */
+		$scope.addClassOverlay = function(movie) {
+			if ($scope.hovered === movie && $scope.expanded !== $scope.hovered) {
+				return true;
+			};
+			return false;
+		}
+
+		/*
+		Event handler for mouseover event
+		 */
+		$scope.showOverlay = function(movie) {
+			if (!self.hovering) {
+				$scope.hovered = movie;
+				console.log('mouseover event' + movie.movieName);
+				self.hovering = true;
+			};
+		}
+
+		/*
+		Event handler for mouseleave event
+		 */
+		$scope.hideOverlay = function(movie) {
+			if ($scope.hovered) {
+				delete $scope.hovered;
+				self.hovering = false;
+				console.log('mouseleave event' + movie.movieName);
+			};
+		}
 
 		/*
 		Determine whether a poster show shold or not. For the function of location filter
@@ -227,37 +259,19 @@ angular.module('gvApp')
 			return false;
 		}
 
-		// $scope.show = function(movie) {
-
-		// 	if (typeof $scope.selectedTheaters === 'undefined') {
-		// 		return true;
-		// 	}
-
-
-		// 	for (var theater in $scope.selectedTheaters) {
-		// 		if ($scope.selectedTheaters[theater]) {
-		// 			for (var theater in movie.cinema) {
-		// 				if ($scope.selectedTheaters[movie.cinema[theater]]) {
-		// 					return true;
-		// 				}
-		// 			}
-
-		// 			return false;
-		// 		};
-		// 	}
-			
-
-		// 	return true;
-		// };
-
 		$scope.hidePreview = function() {
+			if ($scope.expanded) {
+				delete $scope.expanded;
+			};
 			posterGridService.current = -1;
 			var preview = $.data( this, 'preview' );
 			preview.close();
 			$.removeData( this, 'preview' );
 		};
 
-		$scope.showPreview = function(item, index) {
+		$scope.showPreview = function(item, index, movie) {
+			$scope.expanded = movie;
+
 			var preview = $.data( this, 'preview' ),
 				position = item.data('offsetTop');
 
@@ -285,12 +299,14 @@ angular.module('gvApp')
 		};
 
 		$scope.togglePreview = function($event, index, movie) {
+			$scope.expanded = movie;
+
 			this.index = index;
 
 			var item = angular.element($event.target).parent().parent();
 			var items = angular.element($event.target).parent().parent().parent().children();
 			posterGridService.setItems(items);
-			posterGridService.current === index ? $scope.hidePreview() : $scope.showPreview(item, index);
+			posterGridService.current === index ? $scope.hidePreview() : $scope.showPreview(item, index, movie);
 		};
 
 		movieData.queryData().success(function(responce) {
