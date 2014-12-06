@@ -8057,13 +8057,27 @@ button.close {
   width: 100%;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000393}}
+.og-grid .og-expanded > a::after {
+  top: auto;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #ddd;
+  border-width: 15px;
+  left: 50%;
+  margin: -20px 0 0 -15px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003107}}
 .og-grid li {
   display: inline-block;
   margin: 0;
   vertical-align: top;
   height: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\0000399}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003113}}
 .og-grid li a {
   outline: none;
   display: block;
@@ -8071,8 +8085,8 @@ button.close {
   position: relative;
   height: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003106}}
-.og-grid li a figure {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003120}}
+.og-grid li a .overlay {
   position: absolute;
   top: 0;
   left: -100%;
@@ -8082,8 +8096,8 @@ button.close {
   height: 100%;
   transition: all 0.3s ease-in-out;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003120}}
-.og-grid li a figure span {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003134}}
+.og-grid li a .overlay .container {
   display: block;
   padding: 10px 0;
   margin: 40px 20px 20px 20px;
@@ -8091,13 +8105,12 @@ button.close {
   font-weight: normal;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003131}}
-.og-grid li a figure:hover {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003145}}
+.og-grid li a .overlay:hover {
   left: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003137}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003151}}
 .og-grid li .image-container, .og-grid li img {
   width: 20vw;
   height: 30vw;
@@ -8105,25 +8118,25 @@ button.close {
   padding: 0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003169}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003160}}
 .og-expander {
   position: absolute;
   background: #DDD;
   top: auto;
   left: 0;
   width: 100%;
-  margin-top: 10px;
   text-align: left;
   height: 0;
   overflow: hidden;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003181}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003173}}
 .og-expander-inner {
   padding: 20px;
   height: 100%;
+  position: relative;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003185}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003178}}
 .og-expander-inner .og-close {
   position: absolute;
   width: 40px;
@@ -8132,7 +8145,7 @@ button.close {
   right: 20px;
   cursor: pointer;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003193}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003186}}
 .og-expander-inner .og-close:before, .og-expander-inner .og-close:after {
   content: '';
   position: absolute;
@@ -8143,24 +8156,28 @@ button.close {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003205}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003198}}
 .og-expander-inner .og-close:after {
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003211}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003204}}
 .og-expander-inner .og-close:hover::before, .og-expander-inner .og-close:hover::after {
   background: #333;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003209}}
+.og-expander-inner .modal-detail {
+  z-index: 1000;
 }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (max-width: 1050px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003219}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003216}}
   .container {
     max-width: 730px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003223}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003220}}
   img {
     width: 25vw;
     height: 37vw;
@@ -8169,12 +8186,12 @@ button.close {
   }
 }
 @media screen and (max-width: 900px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003232}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003229}}
   .container {
     max-width: 730px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003236}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/wedrago\/Development\/movie_booking_project\/gv_app\/app\/styles\/main\.scss}line{font-family:\00003233}}
   img {
     width: 33.3vw;
     height: 51vw;

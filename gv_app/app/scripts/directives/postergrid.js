@@ -56,8 +56,6 @@ angular.module('gvApp')
 			this.calcHeight();
 			this.$previewEl.css('height', this.height);
 			this.$item.css( 'height', this.itemHeight ).on( posterGridService.transEndEventName, onEndFn );
-			// console.log(this.$item.children());
-			// console.log("Open " + this.$item.children().height());
 
 			if (!posterGridService.support) {
 				onEndFn.call();
@@ -103,8 +101,8 @@ angular.module('gvApp')
 		},
 
 		close : function() {
-			var $expandedItem = posterGridService.$items.eq( this.expandedIdx );
-			$expandedItem.children().css('height', posterGridService.itemHeight[this.expandedIdx]);
+			// var $expandedItem = posterGridService.$items.eq( this.expandedIdx );
+			// $expandedItem.children().css('height', posterGridService.itemHeight[this.expandedIdx]);
 
 		    var self = this,
 		        onEndFn = function() {
@@ -121,11 +119,8 @@ angular.module('gvApp')
 		        // the current expanded item (might be different from this.$item)
 		        var $expandedItem = posterGridService.$items.eq( this.expandedIdx );
 		        $expandedItem.children().css('height', posterGridService.itemHeight[this.expandedIdx]);
-		        // console.log($expandedItem[0]);
+
 				$expandedItem.css( 'height', posterGridService.itemHeight[this.expandedIdx] ).on( posterGridService.transEndEventName, onEndFn );
-		 		// console.log($expandedItem.children());
-		 		
-		 		// console.log("close " + $expandedItem.children().height());
 
 		        if( !posterGridService.support ) {
 		            onEndFn.call();
@@ -148,7 +143,7 @@ angular.module('gvApp')
 		this.current = -1;
 		this.previewPos = -1;
 		this.scrollExtra = 0;
-		this.marginExpanded = 10;
+		this.marginExpanded = 0;
 		this.$window = $window;
 		this.winsize =  {width: $window.innerWidth, height: $window.innerHeight};
 		this.$body = angular.element($document[0].body);
@@ -165,7 +160,7 @@ angular.module('gvApp')
 		// default settings
 		this.settings = {
 			minHeight : 500,
-			speed : 100,
+			speed : 325,
 			easing : 'ease'
 		};
 		this.getWinSize = function() {
@@ -271,8 +266,13 @@ angular.module('gvApp')
 		$scope.togglePreview = function($event, index, movie) {
 			this.index = index;
 
-			var item = angular.element($event.currentTarget);
-			var items = angular.element($event.currentTarget).parent().children();
+			var item = angular.element($event.currentTarget).parent();
+			// console.log(item);
+			var items = item.parent().children();
+
+			var video = items[index];
+			console.log(video);
+
 			posterGridService.setItems(items);
 			posterGridService.current === index ? $scope.hidePreview() : $scope.showPreview(item, index, movie);
 		};
