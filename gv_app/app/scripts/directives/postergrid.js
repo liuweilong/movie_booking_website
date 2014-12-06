@@ -226,7 +226,7 @@ angular.module('gvApp')
 		$scope.showOverlay = function(movie) {
 			if (!self.hovering) {
 				$scope.hovered = movie;
-				console.log('mouseover event' + movie.movieName);
+				// console.log('mouseover event' + movie.movieName);
 				self.hovering = true;
 			};
 		}
@@ -238,7 +238,7 @@ angular.module('gvApp')
 			if ($scope.hovered) {
 				delete $scope.hovered;
 				self.hovering = false;
-				console.log('mouseleave event' + movie.movieName);
+				// console.log('mouseleave event' + movie.movieName);
 			};
 		}
 

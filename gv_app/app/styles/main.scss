@@ -84,37 +84,78 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 }
 
 .og-grid {
-	// .overlay {
-	// 	position: relative;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+	width: 100%;
+	
+	li {
+		display: inline-block;
+		margin: 0;
+		vertical-align: top;
+		height: auto;
 		
-	// 	.overlay-inner {
-	// 		z-index: 998; 
-	// 		position: absolute; 
-	// 		float: left;
-	// 		// top: 40%; 
-	// 		// left: 0; 
-	// 		width: 100%;
-			
-	// 		span {
-	// 			color: white; 
-	// 			font: bold 24px/45px Helvetica, Sans-Serif; 
-	// 			letter-spacing: -1px;  
-	// 			background: rgb(0, 0, 0); /* fallback color */
-	// 			background: rgba(0, 0, 0, 0.7);
-	// 			padding: 10px;
-	// 		}
-
-	// 		.sub-title {
-	// 			font: 16px Helvetica, Sans-Serif; 
-	// 		}
-	// 	}
-	// }
+		a {
+ 			outline: none;
+ 			display: block;
+ 			position: relative;	
+		}
+	}
 
 	img {
 	    width: 20vw;
 	    height: 30vw; 
 	    margin: 0;
 	    padding: 0;
+	}
+}
+
+.og-expander {
+	position: absolute;
+	background: #DDD;
+	top: auto;
+	left: 0;
+	width: 100%;
+	margin-top: 10px;
+	text-align: left;
+	height: 0;
+	overflow: hidden; 
+}
+
+.og-expander-inner {
+	padding: 20px;
+	height: 100%;
+	
+	.og-close {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		top: 20px;
+		right: 20px;
+		cursor: pointer;
+		
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			top: 50%;
+			height: 1px;
+			background: #888;
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+
+		&:after {
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+		}
+
+		&:hover::before, &:hover::after {
+			background: #333;
+		}
 	}
 }
 
