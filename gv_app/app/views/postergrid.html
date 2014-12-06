@@ -1,12 +1,8 @@
-<ul id="og-grid" class="og-grid">
+<ul id="og-grid" class="og-grid effect-moveup">
 	<li ng-repeat="movie in movies" ng-click="togglePreview($event, $index, movie)" ng-show="show(movie)">
-		<a href="" ng-class="{overlay: addClassOverlay(movie)}" ng-mouseover="showOverlay(movie)" ng-mouseleave="hideOverlay(movie)">
-			<!-- <div class="overlay-inner" ng-show="addClassOverlay(movie)">
-				<span>{{movie.movieName}}</span><br><br>
-				<span class="sub-title">{{movie.runningTime}}</span><br><br>
-				<span class="sub-title">{{movie.language}}</span>
-			</div> -->
+		<a class="image-container">
 			<img ng-src={{movie.imageLink}} alt="{{movie.movieName}}">
+			<figure><span>{{movie.movieName}}</span></figure>
 		</a>
 	</li>
 </ul>

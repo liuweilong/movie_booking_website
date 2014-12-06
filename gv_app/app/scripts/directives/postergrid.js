@@ -56,6 +56,8 @@ angular.module('gvApp')
 			this.calcHeight();
 			this.$previewEl.css('height', this.height);
 			this.$item.css( 'height', this.itemHeight ).on( posterGridService.transEndEventName, onEndFn );
+			// console.log(this.$item.children());
+			// console.log("Open " + this.$item.children().height());
 
 			if (!posterGridService.support) {
 				onEndFn.call();
@@ -101,6 +103,9 @@ angular.module('gvApp')
 		},
 
 		close : function() {
+			var $expandedItem = posterGridService.$items.eq( this.expandedIdx );
+			$expandedItem.children().css('height', posterGridService.itemHeight[this.expandedIdx]);
+
 		    var self = this,
 		        onEndFn = function() {
 		            if( posterGridService.support ) {
@@ -111,15 +116,17 @@ angular.module('gvApp')
 		        };
 		 
 		    setTimeout( $.proxy( function() {
-		 
-		        if( typeof this.$largeImg !== 'undefined' ) {
-		            this.$largeImg.fadeOut( 'fast' );
-		        }
+
 		        this.$previewEl.css( 'height', 0 );
 		        // the current expanded item (might be different from this.$item)
 		        var $expandedItem = posterGridService.$items.eq( this.expandedIdx );
+		        $expandedItem.children().css('height', posterGridService.itemHeight[this.expandedIdx]);
+		        // console.log($expandedItem[0]);
 				$expandedItem.css( 'height', posterGridService.itemHeight[this.expandedIdx] ).on( posterGridService.transEndEventName, onEndFn );
-		 
+		 		// console.log($expandedItem.children());
+		 		
+		 		// console.log("close " + $expandedItem.children().height());
+
 		        if( !posterGridService.support ) {
 		            onEndFn.call();
 		        }
@@ -169,7 +176,6 @@ angular.module('gvApp')
 		this.setItems = function(items) {
 			if (typeof this.$items === 'undefined') {
 				this.$items = items;
-				// console.log(items);
 				this.saveItemInfo(true);
 			};
 		}
@@ -178,6 +184,10 @@ angular.module('gvApp')
 			var self = this;
 			this.$items.each(function() {
 				var $item = $(this);
+				$item.hoverdir({
+					hoverDelay: 0,
+					inverse: false
+				});
 				$item.data('offsetTop', $item.offset(). top);
 				self.itemOffsetTop.push($item.offset().top);
 				if (saveheight) {
@@ -193,13 +203,10 @@ angular.module('gvApp')
 	['$scope', '$attrs', 'posterGridService', 'previewFactory', 'movieData', function($scope, $attrs, posterGridService, previewFactory, movieData){
 		var self = this;
 
-		this.hovering = false;
-
 		/*
 		Initialization 
 		 */
-		this.init = function(element) {
-			this.$element = element;
+		this.init = function() {
 			posterGridService.getWinSize();
 		};
 
@@ -208,38 +215,6 @@ angular.module('gvApp')
 		 */
 		this.select = function(selectedTheater) {
 			$scope.selectedTheater = selectedTheater;
-		}
-
-		/*
-		Whether a overlay should be added
-		 */
-		$scope.addClassOverlay = function(movie) {
-			if ($scope.hovered === movie && $scope.expanded !== $scope.hovered) {
-				return true;
-			};
-			return false;
-		}
-
-		/*
-		Event handler for mouseover event
-		 */
-		$scope.showOverlay = function(movie) {
-			if (!self.hovering) {
-				$scope.hovered = movie;
-				// console.log('mouseover event' + movie.movieName);
-				self.hovering = true;
-			};
-		}
-
-		/*
-		Event handler for mouseleave event
-		 */
-		$scope.hideOverlay = function(movie) {
-			if ($scope.hovered) {
-				delete $scope.hovered;
-				self.hovering = false;
-				// console.log('mouseleave event' + movie.movieName);
-			};
 		}
 
 		/*
@@ -260,9 +235,6 @@ angular.module('gvApp')
 		}
 
 		$scope.hidePreview = function() {
-			if ($scope.expanded) {
-				delete $scope.expanded;
-			};
 			posterGridService.current = -1;
 			var preview = $.data( this, 'preview' );
 			preview.close();
@@ -270,8 +242,6 @@ angular.module('gvApp')
 		};
 
 		$scope.showPreview = function(item, index, movie) {
-			$scope.expanded = movie;
-
 			var preview = $.data( this, 'preview' ),
 				position = item.data('offsetTop');
 
@@ -299,12 +269,10 @@ angular.module('gvApp')
 		};
 
 		$scope.togglePreview = function($event, index, movie) {
-			$scope.expanded = movie;
-
 			this.index = index;
 
-			var item = angular.element($event.target).parent().parent();
-			var items = angular.element($event.target).parent().parent().parent().children();
+			var item = angular.element($event.currentTarget);
+			var items = angular.element($event.currentTarget).parent().children();
 			posterGridService.setItems(items);
 			posterGridService.current === index ? $scope.hidePreview() : $scope.showPreview(item, index, movie);
 		};
@@ -320,7 +288,8 @@ angular.module('gvApp')
 		angular.element("#spacer-selector").css('height', angular.element('.selector').outerHeight() + 'px');
 	};
 
-	var link = function(scope, element, attrs, ctrl) {
+	var pre_link = function(scope, element, attrs, ctrl) {
+		// Fix the position of content as the header is fixed
 		fixPosition();
 
 		/*
@@ -328,8 +297,18 @@ angular.module('gvApp')
 		 */
 		var posterGridCtrl = ctrl[0],
 			selectorCtrl = ctrl[1];
-		posterGridCtrl.init(element);
+		posterGridCtrl.init();
 		selectorCtrl.registerGrid(posterGridCtrl);
+	};
+
+	var post_link = function(scope, element, attrs, ctrl) {
+	};
+
+	var compile = function(element, attrs) {
+		return {
+			pre: pre_link,
+			post: post_link
+		}
 	};
 
 	return {
@@ -337,6 +316,6 @@ angular.module('gvApp')
 		require: ['posterGrid', '^selector'],
 		restrict: 'E',
 		controller: 'posterGridCtrl',
-		link: link
+		compile: compile
 	};
 });

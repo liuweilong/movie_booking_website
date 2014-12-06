@@ -14,7 +14,6 @@ angular.module('gvApp')
 		link: function postLink(scope, element, attrs) {
 			attrs.$observe('index', function() {
 				scope.movie = scope.movies[attrs.index];
-				// scope.movie = attrs.o;
 			});
 		}
 	};
