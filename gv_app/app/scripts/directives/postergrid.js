@@ -159,7 +159,7 @@ angular.module('gvApp')
 		this.support = Modernizr.csstransitions;
 		// default settings
 		this.settings = {
-			minHeight : 500,
+			minHeight : 550,
 			speed : 325,
 			easing : 'ease'
 		};
@@ -183,6 +183,15 @@ angular.module('gvApp')
 					hoverDelay: 0,
 					inverse: false
 				});
+
+				$item.find('.video-link').jqueryVideoLightning({
+					autoplay: 1,
+					backdrop_color: "#ddd",
+					backdrop_opacity: 0.6,
+					glow: 20,
+					glow_color: "#000"
+				});
+
 				$item.data('offsetTop', $item.offset(). top);
 				self.itemOffsetTop.push($item.offset().top);
 				if (saveheight) {
@@ -270,16 +279,14 @@ angular.module('gvApp')
 			// console.log(item);
 			var items = item.parent().children();
 
-			var video = items[index];
-			console.log(video);
-
 			posterGridService.setItems(items);
 			posterGridService.current === index ? $scope.hidePreview() : $scope.showPreview(item, index, movie);
 		};
 
 		movieData.queryData().success(function(responce) {
 			$scope.movies = responce;
-		})
+		});
+
 }])
 
 .directive('posterGrid', function () {
