@@ -1,8 +1,5 @@
 <div class="og-expander-inner container">
-    <span class="og-close"></span>
-    <!-- <div class="og-fullimg">
-        <img src="../rec/{{imgName}}">
-    </div> -->
+    <!-- <span class="og-close" ng-click="close()"></span> -->
 
     <div class="row">
     	<div class="col-md-5">
@@ -20,9 +17,9 @@
     	    <p>{{movie.synopsis}}</p>
     	</div>
     		
-		<div class="col-md-6 col-md-offset-1">
+		<div class="booking  col-md-6 col-md-offset-1">
 			<div class="selector embed" >
-				<button ng-repeat="theater in embedtheaters" ng-class="{selected: theater === selectedTheater}" ng-click='embedSelectTheater(theater)'>{{theater}}</button>
+				<button ng-repeat="theater in embedtheaters" ng-class="{selected: theater === embedSelectedTheater}" ng-click='embedSelectTheater(theater)'>{{theater}}</button>
 			</div>
 
 			<div class="row">
@@ -33,7 +30,7 @@
 					</li>
 				</div>
 				
-				<div id="seatplan" class="hoder col-md-6">
+				<div id="seatplan" class="holder col-md-6" ng-show="showBooking">
 					<ul id="place"></ul>
 				</div>
 			</div>

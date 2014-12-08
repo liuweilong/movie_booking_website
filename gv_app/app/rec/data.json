@@ -19,7 +19,7 @@
                 }, 
                 "Tuesday" :
                 {
-                    "11:35" : [], "13:00" : [] , "15:00" : [], "17:00" : [], "19:00" : [], "21:00" : []
+                    "11:35" : [1,8,15,22], "13:00" : [] , "15:00" : [], "17:00" : [], "19:00" : [], "21:00" : []
                 },
                 "Wednesday" :
                 {
@@ -578,7 +578,7 @@
     	"runningTime" : "123 minutes",
     	"distributor" : "Cathay" ,
     	"language" : "English(Sub: Chinese)",
-    	"synopsis" : "The worldwide phenomenon of The Hunger Games continues to set the world on fire with The Hunger Games: Mockingjay - Part 1, which finds Katniss Everdeen (Jennifer Lawrence) in District 13 after she literally shatters the games forever. Under the leadership of President Coin (Julianne Moore) and the advice of her trusted friends, Katniss spreads her wings as she fights to save Peeta (Josh Hutcherson) and a nation moved by her courage. The Hunger Games: Mockingjay - Part 1 is directed by Francis Lawrence from a screenplay by Danny Strong and Peter Craig and produced by Nina Jacobson's Color Force in tandem with producer Jon Kilik. The novel on which the film is based is the third in a trilogy written by Suzanne Collins that has over 65 million copies in print in the U.S. alone.",
+    	"synopsis" : "The worldwide phenomenon of The Hunger Games continues to set the world on fire with The Hunger Games: Mockingjay - Part 1, which finds Katniss Everdeen (Jennifer Lawrence) in District 13 after she literally shatters the games forever. Under the leadership of President Coin (Julianne Moore) and the advice of her trusted friends, Katniss spreads her wings as she fights to save Peeta (Josh Hutcherson) and a nation moved by her courage.",
     	   "cinema" : 
             { 
                 "The Cathay" : 
@@ -810,7 +810,7 @@
     	"runningTime" : "108 minutes",
     	"distributor" : "WDS" ,
     	"language" : "English(Sub: Chinese)",
-    	"synopsis" : "With all the heart and humor audiences expect from Walt Disney Animation Studios, Big Hero 6 is an action-packed comedy-adventure about robotics prodigy Hiro Hamada, who learns to harness his genius - thanks to his brilliant brother Tadashi and their like-minded friends: adrenaline junkie Go Go Tamago, neatnik Wasabi, chemistry whiz Honey Lemon and fanboy Fred. When a devastating turn of events catapults them into the midst of a dangerous plot unfolding in the streets of San Fransokyo, Hiro turns to his closest companion - a robot named Baymax - and transforms the group into a band of high-tech heroes determined to solve the mystery. Inspired by the Marvel comics of the same name, and featuring comic-book style action, Big Hero 6 is directed by Don Hall (Winnie the Pooh) and Chris Williams (Bolt), and produced by Roy Conli (Tangled). The film hits theaters in 3D on 13 November, 2014.",
+    	"synopsis" : "With all the heart and humor audiences expect from Walt Disney Animation Studios, Big Hero 6 is an action-packed comedy-adventure about robotics prodigy Hiro Hamada, who learns to harness his genius - thanks to his brilliant brother Tadashi and their like-minded friends: adrenaline junkie Go Go Tamago, neatnik Wasabi, chemistry whiz Honey Lemon and fanboy Fred. When a devastating turn of events catapults them into the midst of a dangerous plot unfolding in the streets of San Fransokyo, Hiro turns to his closest companion - a robot named Baymax - and transforms the group into a band of high-tech heroes determined to solve the mystery.",
     	"cinema" : 
         { 
             "The Cathay" : 
@@ -1042,7 +1042,7 @@
     	"runningTime" : "113 minutes",
     	"distributor" : "AE" ,
     	"language" : "Hindi",
-    	"synopsis" : "Abhay (a crime journalist), Maya (a medical intern), Goti (a computer hardware specialist) and Kalim (the owner of a garage) are four friends. They began their friendship when they met at a gym, run by their trainer Ricky. Over the period of a couple of years, all five of them have become a close knit gang. Then one day, Ricky is run over by a young man called Anshuman Dayal. Dayal was drinking and driving, but since his father was a fixer for the police, he got away scott-free. When the friends find that the system is too corrupt to give them justice, they go into a deep depression. However, the four friends decide to do something about it. They train and get in peak physical form. And they become vigilantes. By day they are ordinary citizens of the country. By night, they don masks and turn the tables against the very corrupt system that created them. They do all this in a manner which makes fun of these departments and officials. And they call themselves: UNGLI GANG.",
+    	"synopsis" : "Abhay (a crime journalist), Maya (a medical intern), Goti (a computer hardware specialist) and Kalim (the owner of a garage) are four friends. They began their friendship when they met at a gym, run by their trainer Ricky. Over the period of a couple of years, all five of them have become a close knit gang. Then one day, Ricky is run over by a young man called Anshuman Dayal. Dayal was drinking and driving, but since his father was a fixer for the police, he got away scott-free. When the friends find that the system is too corrupt to give them justice, they go into a deep depression. However, the four friends decide to do something about it. They train and get in peak physical form. And they become vigilantes.",
     	"cinema" : 
         { 
             "The Cathay" : 

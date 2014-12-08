@@ -111,7 +111,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 		margin: -20px 0 0 -15px;  
 	}
 	
-	& li {
+	>li {
 		display: inline-block;
 		margin: 0;
 		vertical-align: top;
@@ -125,6 +125,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
  			height: auto;
  			
  			.overlay {
+ 				cursor: pointer;
  				position: absolute;
  				top: 0;
  				left: -100%;
@@ -212,16 +213,12 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 			background: #333;
 		}
 	}
-
-	.modal-detail {
-		z-index: 1000; 
-	}
 }
 
 .timeslot {
 	margin-left: 10px;
 	
-	li {
+	>li {
 		display: block;
 		margin-bottom: 5px; 
 		
@@ -233,9 +230,55 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 	}
 }
 
-.seat-plan {
-	background-color: red; 
-	height: 100px; 
+.holder{    
+	opacity: 0.95;
+    filter: alpha(opacity=40);
+}
+
+.booking {
+	margin-top: 10px; 
+}
+
+#seatplan {
+	margin-top: 17px; 
+	opacity: 0.95;
+    filter: alpha(opacity=40);
+	
+	#place {
+		position: relative;
+		// margin: 7px;
+		
+		>li {
+			list-style: none;
+			position: absolute;
+			
+			&:hover {
+				background: red;
+			} 
+		}
+
+		.seat {
+			border-radius: 50%;
+			width: 30px;
+			height: 30px; 
+			background: #FFF;
+			display:inline-block;
+		}
+		
+		.selectedSeat { 
+			border-radius: 50%;
+			width: 30px;
+			height: 30px; 
+			background: #8C081F;    
+		}
+		
+		.selectingSeat { 
+			border-radius: 50%;
+			width: 30px;
+			height: 30px; 
+			background: #FF3B5D;         
+		}
+	}
 }
 
 /* Responsive: Portrait tablets and up */

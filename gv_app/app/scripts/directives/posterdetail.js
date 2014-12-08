@@ -14,17 +14,31 @@ angular.module('gvApp')
 	console.log(self.$seatplan);
 
 	$scope.embedSelectTheater = function(theater) {
-		if (theater !== $scope.selectedTheater) {
-			$scope.selectedTheater = theater;
-			$scope.days = $scope.movie.cinema[$scope.selectedTheater];
+		$scope.showBooking = false;
+
+		if (theater !== $scope.embedSelectedTheater) {
+			$scope.embedSelectedTheater = theater;
+			$scope.days = $scope.movie.cinema[$scope.embedSelectedTheater];
 		};
 	}
 
 	$scope.showSeatplan = function(seatplan) {
+		$scope.showBooking = true;
+
 		movieseat_init(self.$seatplan, seatplan);
+
+		$('.seat').click(function () {
+			if ($(this).hasClass(settings.selectedSeatCss)){
+				alert('This seat is already reserved');
+			}
+			else{
+				$(this).toggleClass("selectingSeat");
+			}
+		});
 	}
 
 }])
+
 .directive('posterDetail', ['$compile', function ($compile) {
 	var link = function(scope, element, attrs) {
 
@@ -38,12 +52,12 @@ angular.module('gvApp')
 
 			scope.theaterinfo = scope.movie.cinema;
 
-			scope.weekdays = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+			scope.weekdays = ["Tuesday", "Wednesday", "Thursday"];
 			
-			if (scope.selectedTheater === 'all') {
-				scope.selectedTheater = scope.embedtheaters[0];
-				scope.days = scope.movie.cinema[scope.selectedTheater];
-			};
+			if (typeof scope.embedSelectedTheater === 'undefined' || scope.embedtheaters.indexOf(scope.embedSelectedTheater) == -1) {
+				scope.embedSelectedTheater = scope.embedtheaters[0];
+				scope.days = scope.movie.cinema[scope.embedSelectedTheater];
+			}
 
 			element.find('.video-link').jqueryVideoLightning({
 				id: "y-" + scope.movie.trailerLink,

@@ -1,4 +1,5 @@
 var movieseat_init = function ($item, reservedSeat) {
+    console.log(reservedSeat);
     var str = [], seatNo, className;
     for (i = 0; i < settings.rows; i++) {
         for (j = 0; j < settings.cols; j++) {
@@ -7,8 +8,8 @@ var movieseat_init = function ($item, reservedSeat) {
             if ($.isArray(reservedSeat) && $.inArray(seatNo, reservedSeat) != -1) {
                 className += ' ' + settings.selectedSeatCss;
             }
-            str.push('<li class="' + className + '"' +
-                      'style="top:' + (i * settings.seatHeight).toString() + 'px;left:' + (j * settings.seatWidth).toString() + 'px;width:'+settings.seatWidth.toString()+'px;height:'+settings.seatHeight.toString()+'px;">' +
+            str.push('<li ng-click="console.log(clicked);" class="' + className + '"' +
+                      'style="top:' + (i * settings.seatHeight).toString() + 'px;left:' + (j * settings.seatWidth).toString() + 'px;width:'+(settings.seatWidth-settings.margin).toString()+'px;height:'+(settings.seatHeight-settings.margin).toString()+'px;">' +
                       '<a title="' + seatNo + '">' + "" + '</a>' +
                       '</li>');
         }
@@ -17,29 +18,20 @@ var movieseat_init = function ($item, reservedSeat) {
 };
 
 var settings = {
-               rows: 5,
-               cols: 15,
+               rows: 7,
+               cols: 11,
                rowCssPrefix: 'row-',
                colCssPrefix: 'col-',
-               seatWidth: 20,
-               seatHeight: 20,
+               seatWidth: 23,
+               seatHeight: 23,
+               margin: 3,
                seatCss: 'seat',
                selectedSeatCss: 'selectedSeat',
                selectingSeatCss: 'selectingSeat'
            };   
 
 //case I: Show from starting
-//init();
 
-$('.' + settings.seatCss).click(function () {
-if ($(this).hasClass(settings.selectedSeatCss)){
-    alert('This seat is already reserved');
-}
-else{
-    $(this).toggleClass(settings.selectingSeatCss);
-    }
-});
- 
 $('.btnShow').click(function () {
     var str = [];
     $.each($('.place li.' + settings.selectedSeatCss + ' a, .place li.'+ settings.selectingSeatCss + ' a'), function (index, value) {
