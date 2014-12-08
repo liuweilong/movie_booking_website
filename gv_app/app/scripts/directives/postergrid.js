@@ -228,9 +228,9 @@ angular.module('gvApp')
 			if ($scope.selectedTheater === 'all' | typeof $scope.selectedTheater === 'undefined') {
 				return true;
 			};
-
 			for (var theater in movie.cinema) {
-				if ($scope.selectedTheater === movie.cinema[theater]) {
+				// console.log(theater);
+				if ($scope.selectedTheater === theater) {
 					return true;
 				};
 			}

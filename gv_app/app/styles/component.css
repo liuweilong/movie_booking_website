@@ -1,0 +1,136 @@
+.holder{    
+	height:200px;    
+	width:535px;
+	opacity: 0.95;
+    filter: alpha(opacity=40);
+	border:1px solid #A4A4A4;
+	margin-left:10px;   
+}
+
+.screen{
+	height:50px;    
+	width:550px;
+	border-radius: 10px;
+  	background: #BADA55;
+}
+
+.place {
+	position:relative;
+	margin:7px;
+}
+
+.place a{
+	font-size:0.6em;
+}
+
+.place li
+{
+	list-style: none outside none;
+	position: absolute;   
+}    
+
+.place li:hover
+{
+	/*background-color:yellow;      */
+	/*background:url("images/seat_plan/hover_seat.png") no-repeat scroll 0 0 transparent;*/
+	/*border-radius: 50%;
+	width: 30px;
+	height: 30px; 
+	background: black;*/
+	opacity: 0.4;
+    filter: alpha(opacity=40);
+} 
+
+.place .seat{
+	border-radius: 50%;
+	width: 30px;
+	height: 30px; 
+	background: #D8D8D8;
+	/*background:url("images/seat_plan/empty_seat.png") no-repeat scroll 0 0 transparent;
+	height:33px;
+	width:33px;*/
+	display:block;   
+}
+
+.place .selectedSeat
+{ 
+	border-radius: 50%;
+	width: 30px;
+	height: 30px; 
+	background: #8C081F;  FF3B5D      
+}
+
+.place .selectingSeat
+{ 
+	border-radius: 50%;
+	width: 30px;
+	height: 30px; 
+	background: #FF3B5D;         
+}
+
+.place .row-3, #place .row-4{
+	/*margin-top:10px;*/
+}
+
+.seatDescription li{
+	verticle-align:middle;    
+	list-style: none outside none;
+	padding-left:35px;
+	height:35px;
+	float:left;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.videogular-container {
+	width: 100%;
+	height: 320px;
+	margin: auto;
+	overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+	.videogular-container {
+		width: 1170px;
+		height: 658.125px;
+	}
+
+	.videogular-container.audio {
+		width: 1170px;
+		height: 50px;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+	.videogular-container {
+		width: 940px;
+		height: 528.75px;
+	}
+
+	.videogular-container.audio {
+		width: 940px;
+		height: 50px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+	.videogular-container {
+		width: 728px;
+		height: 409.5px;
+	}
+
+	.videogular-container.audio {
+		width: 728px;
+		height: 50px;
+	}
+}
+
+#button_play {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px; 
+	background: #FF3B5D; 
+}

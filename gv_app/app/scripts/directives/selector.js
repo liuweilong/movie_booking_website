@@ -32,7 +32,6 @@ angular.module('gvApp')
 		};
 
 		$scope.theaters = movieData.theaters;
-
 		/*
 		
 		 */

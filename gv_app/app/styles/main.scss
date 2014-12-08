@@ -58,7 +58,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 .selector {
 	width: 100%; 
 	padding: 10px 0 10px 0;
-	position: fixed;
 	z-index: 999; 
 	background-color: #5B5E6F;
 	
@@ -83,6 +82,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 	}
 }
 
+.main {
+	position: fixed;
+}
+
+.embed {
+	background: rgba(0, 0, 0, 0); 
+}
+
 .og-grid {
 	list-style: none;
 	padding: 0;
@@ -104,7 +111,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 		margin: -20px 0 0 -15px;  
 	}
 	
-	li {
+	& li {
 		display: inline-block;
 		margin: 0;
 		vertical-align: top;
@@ -179,8 +186,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 		position: absolute;
 		width: 40px;
 		height: 40px;
-		top: 20px;
-		right: 20px;
+		top: 30px;
+		right: -10px;
 		cursor: pointer;
 		
 		&:before, &:after {
@@ -209,6 +216,26 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 	.modal-detail {
 		z-index: 1000; 
 	}
+}
+
+.timeslot {
+	margin-left: 10px;
+	
+	li {
+		display: block;
+		margin-bottom: 5px; 
+		
+		.time {
+			display: inline-block;
+			margin-right: 10px; 
+			cursor: pointer;
+		}
+	}
+}
+
+.seat-plan {
+	background-color: red; 
+	height: 100px; 
 }
 
 /* Responsive: Portrait tablets and up */
