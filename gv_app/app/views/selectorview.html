@@ -1,7 +1,7 @@
-<div class="selector main" >
+<div class="selector main" ng-class="{fixed: fixed}">
 	<button ng-repeat="theater in theaters" ng-class="{selected: theater === selectedTheater}" ng-click='selectTheater(theater)'>{{theater}}</button>
 </div>
-<div id="spacer-selector">
+<div id="spacer" ng-show="fixed">
 	&nbsp;
 </div>
 <poster-grid class="poster-grid"></poster-grid>

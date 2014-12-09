@@ -59,10 +59,21 @@ angular.module('gvApp')
 		};
 }])
 
-.directive('selector', [function () {
+.directive('selector', ["$window", function ($window) {
 
 	var link = function(scope, element, attrs, selectorCtrl) {
 		selectorCtrl.init();
+
+		// Bind scroll on window
+		angular.element($window).bind("scroll", function() {
+			if (this.pageYOffset >50) {
+				scope.fixed = true;
+			} else {
+				scope.fixed = false;
+			}
+
+			scope.$apply();
+		});
 	};
 
 	return {
