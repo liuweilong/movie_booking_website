@@ -1,5 +1,5 @@
 <ul id="og-grid" class="og-grid effect-moveup">
-	<li ng-repeat="movie in movies" ng-show="show(movie)">
+	<li class="mix" ng-repeat="movie in movies" ng-show="show(movie)">
 		<a class="image-container" ng-click="togglePreview($event, $index, movie); $event.stopPropagation();">
 			<img ng-src={{movie.imageLink}} alt="{{movie.movieName}}">
 			<div class="overlay">

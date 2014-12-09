@@ -289,13 +289,21 @@ angular.module('gvApp')
 
 }])
 
-.directive('posterGrid', function () {
+.directive('posterGrid',["$window", function ($window) {
 	var fixPosition = function() {
 		angular.element("#spacer-header").css('height', angular.element('#header').outerHeight() + 'px');
 		angular.element("#spacer-selector").css('height', angular.element('.selector').outerHeight() + 'px');
 	};
 
 	var pre_link = function(scope, element, attrs, ctrl) {
+		// Bind scroll on window
+		angular.element($window).bind("scroll", function() {
+			if (this.pageYOffset >40) {
+				console.log(this.pageYOffset);
+			};
+		});
+
+
 		// Fix the position of content as the header is fixed
 		fixPosition();
 
@@ -325,4 +333,4 @@ angular.module('gvApp')
 		controller: 'posterGridCtrl',
 		compile: compile
 	};
-});
+}]);
