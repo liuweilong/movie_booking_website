@@ -8,6 +8,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 	border-style: none;  
 }
 
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+span.glyphicon {
+    font-size: 2em;
+}
+
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .clearfix:before,
 .clearfix:after {
@@ -32,45 +40,53 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 /* Custom page header */
 #header {
-	background-color: #FFF;
+	background-color: #000;
 	width: 100%; 
-	// position: fixed;
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 50);
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 50);
+	-webkit-box-shadow: 0 1px 2px rgba(250, 250, 250, 50);
+	box-shadow: 0 1px 2px rgba(250, 250, 250, 50);
 	padding: 5px 0 5px 0;
-	margin: 0; 
 	z-index: 999;
 
 	/* Make the masthead heading the same height as the navigation */
 	h3 {
-		color: #4E7499;
+		color: #D92414;
 		text-transform: uppercase;
 		font-weight: 700;
-		margin: 0 0 0 5px;
+		margin: 0 0 0 15px;
 		line-height: 40px;
 	}
 }
 
 #spacer {
 	width: 100%; 
-	height: 50px; 
+	height: 50px;
+	
 }
 
 .selector {
-	width: 100%; 
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 	padding: 10px 0 10px 0;
 	z-index: 999; 
-	background-color: #5B5E6F;
+	background-color: #130000;
 	
+	.buttons {
+		width: 780px;
+ 		margin-left: auto;
+ 		margin-right: auto;
+	}
+
 	button {
-		width: 120px;
-		background-color: #F4F4F4;
+		// width: 120px;
+		text-transform: uppercase;
+		background-color: #130000;
 		margin: 5px 0 5px 10px;
 		padding: 5px;
 		border-radius: 3px;
 		font-size: 14px;
 		font-weight: 600;
-		color: #4A4A4A;
+		color: #EEE;
 		
 		&:focus {
 			outline: none;
@@ -78,8 +94,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 	}
 
 	.selected {
-		background-color: #8C081F;
-		color: #FFFCFC;
+		// background-color: #130000;
+		color: #D92414;
 	}
 }
 
@@ -107,7 +123,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 		width: 0;
 		position: absolute;
 		pointer-events: none;
-		border-bottom-color: #ddd;
+		border-bottom-color: #eee;
 		border-width: 15px;
 		left: 50%;
 		margin: -20px 0 0 -15px;  
@@ -125,6 +141,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
  			overflow: hidden;
  			position: relative;
  			height: auto;
+ 			-ms-word-wrap: break-word; 
+ 			word-wrap: break-word;
  			
  			.overlay {
  				cursor: pointer;
@@ -142,14 +160,37 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
  				transition: all 0.3s ease-in-out;
  				
  				.container {
- 					display: block;
- 					padding: 10px 0;
+ 					// position: relative;
+ 					// display: block;
+ 					width: 20vw;
+ 					padding: 10px 20px 10px 0;
  					margin: 40px 20px 20px 20px;
  					text-transform: uppercase;
  					font-weight: normal;
  					color: rgba(255,255,255,0.9);
  					text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
- 					// border-bottom: 1px solid rgba(255,255,255,0.5);
+					
+					.info {
+						-ms-word-wrap: break-word; 
+						word-wrap: break-word;
+					    
+					    .book {
+					    	padding: 5px 15px; 
+					    	-webkit-border-radius: 3px; 
+					    	border-radius: 3px; 
+					        font-size: 1.5em;
+					        color: #eee;
+					    }
+
+					    button {
+					    	background-color: #bbb;
+					    }
+
+					    .glyphicon {
+					    	margin-bottom: 10px; 
+					        font-size: 3em;
+					    }
+					}
  				}
 
  				&:hover {
@@ -169,7 +210,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 .og-expander {
 	position: absolute;
-	background: #DDD;
+	background: #eee;
 	top: auto;
 	left: 0;
 	width: 100%;
@@ -184,6 +225,25 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 	padding: 20px;
 	height: 100%;
 	position: relative;
+	color: #13000;
+	
+	.title {
+		text-transform: uppercase;
+	}
+
+	.glyphicon {
+		margin-top: 2px;
+	    font-size: 2em;
+		color: #bbb;
+	}
+	
+	button {
+		padding-left: 0;
+		color: #130000;
+		background-color: #eee;
+	}
+
+
 	
 	.og-close {
 		position: absolute;
@@ -199,7 +259,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 			width: 100%;
 			top: 50%;
 			height: 1px;
-			background: #888;
+			background: #13000;
 			-webkit-transform: rotate(45deg);
 			-moz-transform: rotate(45deg);
 			transform: rotate(45deg);
@@ -225,9 +285,14 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 		margin-bottom: 5px; 
 		
 		.time {
+			font-weight: 300;
 			display: inline-block;
 			margin-right: 10px; 
 			cursor: pointer;
+		}
+
+		.selected-time {
+			color: #D92414;  
 		}
 	}
 }
@@ -259,6 +324,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 			} 
 		}
 
+		button {
+			position: absolute;
+		}
+
 		.seat {
 			border-radius: 50%;
 			width: 30px;
@@ -278,7 +347,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 			border-radius: 50%;
 			width: 30px;
 			height: 30px; 
-			background: #FF3B5D;         
+			background: #D92414;         
 		}
 	}
 }

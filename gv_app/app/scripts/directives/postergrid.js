@@ -193,6 +193,7 @@ angular.module('gvApp')
 				});
 
 				$item.data('offsetTop', $item.offset(). top);
+
 				self.itemOffsetTop.push($item.offset().top);
 				if (saveheight) {
 					// console.log($item.height());
@@ -239,6 +240,7 @@ angular.module('gvApp')
 		}
 
 		$scope.hidePreview = function() {
+			$scope.selectorCtrl.expand(false);
 			posterGridService.current = -1;
 			var preview = $.data( this, 'preview' );
 			preview.close();
@@ -246,6 +248,7 @@ angular.module('gvApp')
 		};
 
 		$scope.showPreview = function(item, index, movie) {
+			$scope.selectorCtrl.expand(true);
 			var preview = $.data( this, 'preview' ),
 				position = item.data('offsetTop');
 
@@ -271,6 +274,16 @@ angular.module('gvApp')
 			preview = $.data(this, 'preview', new previewFactory(item, index, $scope));
 			preview.open();
 		};
+
+		$scope.clickButton = function($event, index, movie) {
+			this.index = index;
+
+			var item = angular.element($event.currentTarget).parent().parent().parent().parent().parent();
+			console.log(item);
+			var items = item.parent().children();
+			posterGridService.setItems(items);
+			posterGridService.current === index ? $scope.hidePreview() : $scope.showPreview(item, index, movie);
+		}
 
 		$scope.togglePreview = function($event, index, movie) {
 			this.index = index;
@@ -304,6 +317,7 @@ angular.module('gvApp')
 		 */
 		var posterGridCtrl = ctrl[0],
 			selectorCtrl = ctrl[1];
+		scope.selectorCtrl = selectorCtrl;
 		posterGridCtrl.init();
 		selectorCtrl.registerGrid(posterGridCtrl);
 	};

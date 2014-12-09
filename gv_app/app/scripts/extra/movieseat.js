@@ -1,5 +1,4 @@
 var movieseat_init = function ($item, reservedSeat) {
-    console.log(reservedSeat);
     var str = [], seatNo, className;
     for (i = 0; i < settings.rows; i++) {
         for (j = 0; j < settings.cols; j++) {
@@ -13,6 +12,7 @@ var movieseat_init = function ($item, reservedSeat) {
                       '<a title="' + seatNo + '">' + "" + '</a>' +
                       '</li>');
         }
+        str.push('<button class="check-out" style="top:'+(settings.rows*settings.seatHeight).toString()+'px;right:0;">Check out</button>');
     }
     $item.html(str.join(''));
 };

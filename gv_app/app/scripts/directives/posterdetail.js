@@ -22,10 +22,22 @@ angular.module('gvApp')
 		};
 	}
 
-	$scope.showSeatplan = function(seatplan) {
+	$scope.showSeatplan = function($event, seatplan, index) {
+		if (typeof self.currentTime !== "undefined") {
+			self.currentTime.removeClass("selected-time");
+		};
+
+		self.currentTime = angular.element($event.currentTarget);
+		self.currentTime.addClass("selected-time");
+
+		$scope.selectedIndex = index;
 		$scope.showBooking = true;
 
 		movieseat_init(self.$seatplan, seatplan);
+
+		$('.check-out').click(function () {
+			alert('Tickets booked! Check your email pliz');
+		})
 
 		$('.seat').click(function () {
 			if ($(this).hasClass(settings.selectedSeatCss)){
@@ -54,7 +66,9 @@ angular.module('gvApp')
 
 			scope.weekdays = ["Tuesday", "Wednesday", "Thursday"];
 			
-			if (typeof scope.embedSelectedTheater === 'undefined' || scope.embedtheaters.indexOf(scope.embedSelectedTheater) == -1) {
+			if (scope.selectedTheater !== "all") {
+				scope.embedSelectedTheater = scope.selectedTheater;
+			} else if (typeof scope.embedSelectedTheater === 'undefined' || scope.embedtheaters.indexOf(scope.embedSelectedTheater) == -1) {
 				scope.embedSelectedTheater = scope.embedtheaters[0];
 				scope.days = scope.movie.cinema[scope.embedSelectedTheater];
 			}

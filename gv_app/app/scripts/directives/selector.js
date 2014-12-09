@@ -19,6 +19,9 @@ angular.module('gvApp')
 		$scope.selectedTheater = 'all';
 
 		this.init = function() {
+			$scope.expanded = false;
+			$scope.fixed = false;
+
 			/*
 			Pre set the select flag to be false
 			 */
@@ -30,6 +33,10 @@ angular.module('gvApp')
 		this.registerGrid = function(posterGridCtrl) {
 			this.posterGridCtrl = posterGridCtrl;
 		};
+
+		this.expand = function(expanded) {
+			$scope.expanded = expanded;
+		}
 
 		$scope.theaters = movieData.theaters;
 		/*

@@ -3,9 +3,9 @@
 
     <div class="row">
     	<div class="col-md-5">
-    	    <h3>{{movie.movieName}}</h3>
-    	    <button><span class="video-link">Trailer</span></button>
-			<h5>About</h5>
+    	    <h2 class="title">{{movie.movieName}}</h2>
+    	    <span class="glyphicon glyphicon-play-circle video-link video-link"></span>
+			<h4>About</h4>
     	    <p>
     	    	<span>Cast: {{movie.cast}}</span><br>
     	    	<span>Director: {{movie.director}}</span><br>
@@ -13,12 +13,12 @@
     	    	<span>Release: {{movie.release}}</span><br>
     	    	<span>language: {{movie.language}}</span>
     	    </p>
-    	    <h5>Synopsis</h5>
+    	    <h4>Synopsis</h4>
     	    <p>{{movie.synopsis}}</p>
     	</div>
     		
 		<div class="booking  col-md-6 col-md-offset-1">
-			<div class="selector embed" >
+			<div class="selector embed">
 				<button ng-repeat="theater in embedtheaters" ng-class="{selected: theater === embedSelectedTheater}" ng-click='embedSelectTheater(theater)'>{{theater}}</button>
 			</div>
 
@@ -26,7 +26,7 @@
 				<div class="timeslot col-md-5">
 					<li class="day" ng-repeat="day in weekdays">
 						<label>{{day}}</label><br>
-						<div class="time" ng-repeat="(time, seatplan) in days[day]" ng-click="showSeatplan(seatplan)">{{time}}</div>
+						<div class="time" ng-repeat="(time, seatplan) in days[day]" ng-click="showSeatplan($event, seatplan, index)">{{time}}</div>
 					</li>
 				</div>
 				

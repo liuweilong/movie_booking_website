@@ -1,5 +1,11 @@
+<div id="header">
+	<h3>Cathay</h3>
+</div>
+
 <div class="selector main" ng-class="{fixed: fixed}">
-	<button ng-repeat="theater in theaters" ng-class="{selected: theater === selectedTheater}" ng-click='selectTheater(theater)'>{{theater}}</button>
+	<div class="buttons">
+		<button ng-repeat="theater in theaters" ng-class="{selected: theater === selectedTheater}" ng-click='selectTheater(theater)'>{{theater}}</button>
+	</div>
 </div>
 <div id="spacer" ng-show="fixed">
 	&nbsp;
